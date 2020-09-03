@@ -81,33 +81,6 @@ firewall-cmd --reload
 # ---------------------------------------------------\
 systemctl enable zabbix-agent && systemctl start zabbix-agent
 
-# PSK
-# TLSConnect=psk
-# TLSAccept=psk
-# TLSPSKIdentity=psk001
-# TLSPSKFile=/etc/zabbix/zabbix_agentd.psk
-# ---------------------------------------------------\
-echo -en "Secure agent? (y/n)? "
-read answer
-if echo "$answer" | grep -iq "^y" ;then
-    echo "Generate PSK..."
-
-    sh -c "openssl rand -hex 32 > /etc/zabbix/zabbix_agentd.psk"
-
-    sed -i 's/# TLSConnect=.*/TLSConnect=psk/' /etc/zabbix/zabbix_agentd.conf
-    sed -i 's/# TLSAccept=.*/TLSAccept=psk/' /etc/zabbix/zabbix_agentd.conf
-    sed -i 's/# TLSPSKFile=.*/TLSPSKFile=\/etc\/zabbix\/zabbix_agentd.psk/' /etc/zabbix/zabbix_agentd.conf
-    sed -i "s/# TLSPSKIdentity=.*/TLSPSKIdentity="$PSKIdentity$RAND_PREFIX"/" /etc/zabbix/zabbix_agentd.conf
-
-    systemctl restart zabbix-agent
-
-    Info "PSK - $(cat /etc/zabbix/zabbix_agentd.psk)"
-    Info "PSKIdentity - $PSKIdentity$RAND_PREFIX"
-
-else
-      echo -e "Ok, you agent is will be insecure..."
-fi
-
 # Active agent (EnableRemoteCommands)
 echo -en "Enable active agent feature? (y/n)? "
 read answer
