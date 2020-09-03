@@ -16,7 +16,7 @@ systemctl --now enable httpd
 fi
 echo "
 ###################################################
-login to http://$(hostname -I|grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b")/nagios
+login to http://$(hostname -I|cut -d' ' -f1)/nagios
 user: nagiosadmin
 password: $pass
 For setting to notify via email and chatwork
