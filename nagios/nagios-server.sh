@@ -1,6 +1,6 @@
 yum install nagios.x86_64 -y
 mkdir -p /lib64/nagios/plugins
-wget -P /lib64/nagios/plugins/ -c  https://github.com/leehuynhfvn/my-public-note/blob/master/nagios/plugins.tar.gz -O - | tar -xz
+wget -P /lib64/nagios/plugins/ -c  https://raw.githubusercontent.com/leehuynhfvn/my-public-note/master/nagios/plugins.tar.gz -O - | tar -xz
 wget -P /usr/local/bin/ -c https://raw.githubusercontent.com/leehuynhfvn/my-public-note/master/nagios/sendEmail && chmod +x /usr/local/bin/sendEmail
 wget -P /usr/local/bin -c https://github.com/leehuynhfvn/my-public-note/blob/master/nagios/nagios2chatwork.sh && chmod +x /usr/local/bin/nagios2chatwork.sh
 wget -c https://raw.githubusercontent.com/leehuynhfvn/my-public-note/master/nagios/commands.cfg -O - | cat >> /etc/nagios/objects/commands.cfg
