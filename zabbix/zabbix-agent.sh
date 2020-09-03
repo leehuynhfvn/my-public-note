@@ -19,16 +19,16 @@ Error()
 
 isRoot() {
 	if [ $(id -u) -ne 0 ]; then
-		Error "You must be root user to continue"
+		echo "You must be root user to continue"
 		exit 1
 	fi
 	RID=$(id -u root 2>/dev/null)
 	if [ $? -ne 0 ]; then
-		Error "User root no found. You should create it to continue"
+		echo "User root no found. You should create it to continue"
 		exit 1
 	fi
 	if [ $RID -ne 0 ]; then
-		Error "User root UID not equals 0. User root must have UID 0"
+		echo "User root UID not equals 0. User root must have UID 0"
 		exit 1
 	fi
 }
