@@ -1,3 +1,4 @@
+#!/bin/bash
 yum install nagios.x86_64 -y
 mkdir -p /usr/lib64/nagios/plugins
 wget -P /usr/lib64/nagios/plugins/ -c  https://raw.githubusercontent.com/leehuynhfvn/my-public-note/master/nagios/plugins.tar.gz -O - | tar -xz
