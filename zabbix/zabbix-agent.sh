@@ -103,6 +103,7 @@ if echo "$answer" | grep -iq "^y" ;then
 
     Info "PSK - $(cat /etc/zabbix/zabbix_agentd.psk)"
     Info "PSKIdentity - $PSKIdentity$RAND_PREFIX"
+
 else
       echo -e "Ok, you agent is will be insecure..."
 fi
