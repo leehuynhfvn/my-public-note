@@ -53,7 +53,7 @@ fi
 
 
 if [ -z "$1" ]; then
-    Error "\nPlease call '$0 <Zabbix Server IP>' to run this command!\n"
+    echo "\nPlease call '$0 <Zabbix Server IP>' to run this command!\n"
     exit 1
 fi
 
