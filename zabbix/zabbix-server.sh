@@ -19,8 +19,8 @@ yum install epel-release yum-utils net-tools -y
 rpm -ivh https://repo.zabbix.com/zabbix/4.0/rhel/7/x86_64/zabbix-release-4.0-1.el7.noarch.rpm
 yum-config-manager --enable rhel-7-server-optional-rpms
 # Remi repo (for new php releases)
-rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
-yum-config-manager --enable remi-php72
+#rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
+#yum-config-manager --enable remi-php72
 # Install and configure Mariadb
 # ---------------------------------------------------\
 yum install mariadb mariadb-server -y
